@@ -34,6 +34,11 @@ interface=wlan0
 dhcp-range=192.168.4.2,192.168.4.100,255.255.255.0,24h
 domain=network
 address=/boring.network/192.168.4.1
+addn-hosts=/etc/dnsmasq.hosts
+EOF
+
+cat <<EOF> /etc/dnsmasq.hosts
+192.168.4.1 unconfigured.insecure.boring.surf.
 EOF
 
 rfkill unblock all
