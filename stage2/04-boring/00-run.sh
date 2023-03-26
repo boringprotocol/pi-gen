@@ -48,7 +48,9 @@ rfkill unblock all
 cat <<EOF> /etc/hostapd/hostapd.conf
 country_code=US
 interface=wlan0
-ssid=boring
+# append random 4 digit to boring ssid
+RANDOM_SUFFIX=$(printf "%04d" $((RANDOM % 10000)))
+ssid=boring-${RANDOM_SUFFIX}
 hw_mode=g
 channel=7
 macaddr_acl=0
